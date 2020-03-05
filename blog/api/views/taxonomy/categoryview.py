@@ -1,7 +1,12 @@
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, \
+	RetrieveUpdateDestroyAPIView
 from taxonomy.models import Category
 from taxonomy.serializer.categoryserializer import CategorySerializer
 
-class CategoryView(ListCreateAPIView):
+class CategoryListCreateView(ListCreateAPIView):
+	queryset = Category.objects.all()
+	serializer_class = CategorySerializer
+
+class CategoryDetailView(RetrieveUpdateDestroyAPIView):
 	queryset = Category.objects.all()
 	serializer_class = CategorySerializer
