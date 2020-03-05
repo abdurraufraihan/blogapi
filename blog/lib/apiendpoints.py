@@ -1,0 +1,1 @@
+POST_PATH = 'posts'
