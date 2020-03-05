@@ -8,6 +8,7 @@ class Post(models.Model):
 		Category, on_delete=models.SET_NULL, null=True, blank=True
 	)
 	tag = models.ManyToManyField(Tag)
+	image = models.ImageField(upload_to='post/')
 
 	def __str__(self):
 		return self.title
