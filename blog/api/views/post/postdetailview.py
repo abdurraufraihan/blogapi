@@ -53,3 +53,14 @@ class PostDetailView(APIView):
 				{const.ERROR_PROPERTY : errorMessage.INTERNAL_SERVER_ERROR},
 				status=status.HTTP_404_NOT_FOUND
 			)
+
+	def delete(self, request, pk, format=None):
+		post = self.getPost(pk)
+		if not post:
+			return Response(
+				{const.ERROR_PROPERTY : \
+					errorMessage.POST_DOES_NOT_EXIST_ERROR},
+				status=status.HTTP_404_NOT_FOUND
+			)
+		post.delete()
+		return Response(status=status.HTTP_204_NO_CONTENT)
