@@ -6,7 +6,8 @@ class PostSaveSerializer(serializers.ModelSerializer):
 	def create(self, validatedData):
 		tag = validatedData.pop(const.TAG_PROPERTY)
 		post = Post.objects.create(**validatedData)
-		post.tag.set(tag)
+		if isinstance(tag, list):
+			post.tag.set(tag)
 		return post
 
 	class Meta:
