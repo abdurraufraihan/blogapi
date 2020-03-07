@@ -2,11 +2,15 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from lib import errorutil as errorUtil
+from api.permissions.isauthenticatedorgetrequest import \
+	IsAuthenticatedOrGetRequest
 from post.serializers.postresponseserializer import PostResponseSerializer
 from post.serializers.postsaveserializer import PostSaveSerializer
 from post.models import Post
 
 class PostListCreateView(APIView):
+	permission_classes = [IsAuthenticatedOrGetRequest]
+
 	def get(self, request, format=None):
 		try:
 			queryset = Post.objects.all()
