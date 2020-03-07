@@ -7,6 +7,6 @@ class TagListCreateView(ListCreateAPIView):
 	queryset = Tag.objects.all()
 	serializer_class = TagSerializer
 
-class TagDetailView(RetrieveUpdateDestroyAPIView):
+class TagRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
 	queryset = Tag.objects.all()
 	serializer_class = TagSerializer

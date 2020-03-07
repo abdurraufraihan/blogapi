@@ -5,7 +5,8 @@ from .views.post.postretriveupdatedestroyview import \
 	PostRetrieveUpdateDestroyView
 from .views.taxonomy.categoryview import CategoryListCreateView, \
 	CategoryRetrieveUpdateDestroyView
-from .views.taxonomy.tagview import TagListCreateView, TagDetailView
+from .views.taxonomy.tagview import TagListCreateView, \
+	TagRetrieveUpdateDestroyView
 
 urlpatterns = [
 	path(apiendpoints.POST_PATH, PostListCreateView.as_view()),
@@ -19,5 +20,5 @@ urlpatterns = [
 		CategoryRetrieveUpdateDestroyView.as_view()
 	),
 	path(apiendpoints.TAG_PATH, TagListCreateView.as_view()),
-	path(apiendpoints.TAG_DETAIL_PATH, TagDetailView.as_view()),
+	path(apiendpoints.TAG_DETAIL_PATH, TagRetrieveUpdateDestroyView.as_view()),
 ]
