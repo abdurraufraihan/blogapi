@@ -6,7 +6,7 @@ from post.serializers.postresponseserializer import PostResponseSerializer
 from post.serializers.postsaveserializer import PostSaveSerializer
 from post.models import Post
 
-class PostListView(APIView):
+class PostListCreateView(APIView):
 	def get(self, request, format=None):
 		try:
 			queryset = Post.objects.all()
