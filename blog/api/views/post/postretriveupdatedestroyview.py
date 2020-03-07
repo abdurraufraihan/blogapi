@@ -1,8 +1,6 @@
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from lib import constants as const
-from lib import errormessages as errorMessage
 from lib import errorutil as errorUtil
 from post.serializers.postresponseserializer import PostResponseSerializer
 from post.serializers.postupdateserializer import PostUpdateSerializer
