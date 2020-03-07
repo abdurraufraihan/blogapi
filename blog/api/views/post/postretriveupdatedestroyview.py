@@ -8,7 +8,7 @@ from post.serializers.postresponseserializer import PostResponseSerializer
 from post.serializers.postupdateserializer import PostUpdateSerializer
 from post.models import Post
 
-class PostDetailView(APIView):
+class PostRetrieveUpdateDestroyView(APIView):
 	def getPost(self, pk):
 		try:
 			return Post.objects.get(pk=pk)
