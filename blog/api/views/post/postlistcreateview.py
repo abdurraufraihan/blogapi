@@ -18,7 +18,8 @@ class PostListCreateView(APIView):
 			page = request.query_params.get(const.PAGINATION_QUERY_PARAM)
 			startItem, endItem = \
 				commonUtil.getPaginationRange(page, const.POST_PER_PAGE)
-			queryset = Post.objects.all()[startItem : endItem]
+			queryset = Post.objects.all().order_by(const.ORDER_BY_DECENDING_PK)\
+				[startItem : endItem]
 			serializer = PostResponseSerializer(queryset, many=True)
 			return Response(serializer.data, status=status.HTTP_200_OK)
 		except:
