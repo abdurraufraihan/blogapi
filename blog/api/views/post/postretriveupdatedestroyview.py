@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from lib import errorutil as errorUtil
+from lib import errorutility as errorUtil
 from api.permissions.isauthenticatedorgetrequest import \
 	IsAuthenticatedOrGetRequest
 from post.serializers.postresponseserializer import PostResponseSerializer
