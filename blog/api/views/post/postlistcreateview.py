@@ -1,7 +1,9 @@
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from lib import constants as const
 from lib import errorutility as errorUtil
+from lib import commonutility as commonUtil
 from api.permissions.isauthenticatedorgetrequest import \
 	IsAuthenticatedOrGetRequest
 from post.serializers.postresponseserializer import PostResponseSerializer
@@ -13,7 +15,10 @@ class PostListCreateView(APIView):
 
 	def get(self, request, format=None):
 		try:
-			queryset = Post.objects.all()
+			page = request.query_params.get(const.PAGINATION_QUERY_PARAM)
+			startItem, endItem = \
+				commonUtil.getPaginationRange(page, const.POST_PER_PAGE)
+			queryset = Post.objects.all()[startItem : endItem]
 			serializer = PostResponseSerializer(queryset, many=True)
 			return Response(serializer.data, status=status.HTTP_200_OK)
 		except:
