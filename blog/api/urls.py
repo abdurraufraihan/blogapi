@@ -9,16 +9,16 @@ from .views.taxonomy.tagview import TagListCreateView, \
 	TagRetrieveUpdateDestroyView
 
 urlpatterns = [
-	path(apiendpoints.POST_PATH, PostListCreateView.as_view()),
+	path(apiendpoints.POST_URL, PostListCreateView.as_view()),
 	path(
-		apiendpoints.POST_DETAIL_PATH,
+		apiendpoints.POST_DETAIL_URL,
 		PostRetrieveUpdateDestroyView.as_view()
 	),
-	path(apiendpoints.CATEGORY_PATH, CategoryListCreateView.as_view()),
+	path(apiendpoints.CATEGORY_URL, CategoryListCreateView.as_view()),
 	path(
-		apiendpoints.CATEGORY_DETAIL_PATH,
+		apiendpoints.CATEGORY_DETAIL_URL,
 		CategoryRetrieveUpdateDestroyView.as_view()
 	),
-	path(apiendpoints.TAG_PATH, TagListCreateView.as_view()),
-	path(apiendpoints.TAG_DETAIL_PATH, TagRetrieveUpdateDestroyView.as_view()),
+	path(apiendpoints.TAG_URL, TagListCreateView.as_view()),
+	path(apiendpoints.TAG_DETAIL_URL, TagRetrieveUpdateDestroyView.as_view()),
 ]
