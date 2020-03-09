@@ -1,6 +1,6 @@
 from django.contrib import admin
 from lib import constants as const
-from .models import Category, Tag
+from apps.taxonomy.models import Category, Tag
 
 class CategoryAdmin(admin.ModelAdmin):
 	list_display = [

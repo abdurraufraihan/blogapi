@@ -1,6 +1,6 @@
 from django.db import models
 from lib import constants as const
-from taxonomy.models import Category, Tag
+from apps.taxonomy.models import Category, Tag
 
 class Post(models.Model):
 	title = models.CharField(max_length=const.POST_TITLE_MAX_LENGTH)

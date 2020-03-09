@@ -1,6 +1,6 @@
 from django.contrib import admin
 from lib import constants as const
-from .models import Post
+from apps.post.models import Post
 
 class PostAdmin(admin.ModelAdmin):
 	list_display = [

@@ -2,11 +2,11 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from lib import errorutility as errorUtil
-from api.permissions.isauthenticatedorgetrequest import \
+from apps.api.permissions.isauthenticatedorgetrequest import \
 	IsAuthenticatedOrGetRequest
-from post.serializers.postresponseserializer import PostResponseSerializer
-from post.serializers.postupdateserializer import PostUpdateSerializer
-from post.models import Post
+from apps.post.serializers.postresponseserializer import PostResponseSerializer
+from apps.post.serializers.postupdateserializer import PostUpdateSerializer
+from apps.post.models import Post
 
 class PostRetrieveUpdateDestroyView(APIView):
 	permission_classes = [IsAuthenticatedOrGetRequest]

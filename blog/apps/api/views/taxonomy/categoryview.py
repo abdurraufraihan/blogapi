@@ -1,9 +1,9 @@
 from rest_framework.generics import ListCreateAPIView, \
 	RetrieveUpdateDestroyAPIView
-from api.permissions.isauthenticatedorgetrequest import \
+from apps.api.permissions.isauthenticatedorgetrequest import \
 	IsAuthenticatedOrGetRequest
-from taxonomy.models import Category
-from taxonomy.serializer.categoryserializer import CategorySerializer
+from apps.taxonomy.models import Category
+from apps.taxonomy.serializer.categoryserializer import CategorySerializer
 
 class CategoryListCreateView(ListCreateAPIView):
 	permission_classes = [IsAuthenticatedOrGetRequest]

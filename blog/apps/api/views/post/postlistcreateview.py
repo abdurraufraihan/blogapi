@@ -4,11 +4,11 @@ from rest_framework.response import Response
 from lib import constants as const
 from lib import errorutility as errorUtil
 from lib import commonutility as commonUtil
-from api.permissions.isauthenticatedorgetrequest import \
+from apps.api.permissions.isauthenticatedorgetrequest import \
 	IsAuthenticatedOrGetRequest
-from post.serializers.postresponseserializer import PostResponseSerializer
-from post.serializers.postsaveserializer import PostSaveSerializer
-from post.models import Post
+from apps.post.serializers.postresponseserializer import PostResponseSerializer
+from apps.post.serializers.postsaveserializer import PostSaveSerializer
+from apps.post.models import Post
 
 class PostListCreateView(APIView):
 	permission_classes = [IsAuthenticatedOrGetRequest]

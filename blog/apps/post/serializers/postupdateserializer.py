@@ -1,5 +1,5 @@
 from lib import constants as const
-from post.serializers.postsaveserializer import PostSaveSerializer
+from apps.post.serializers.postsaveserializer import PostSaveSerializer
 
 class PostUpdateSerializer(PostSaveSerializer):
 	def __init__(self, *args, **kwargs):

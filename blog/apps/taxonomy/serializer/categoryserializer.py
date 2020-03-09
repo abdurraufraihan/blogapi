@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from lib import constants as const
-from ..models import Category
+from apps.lib import constants as const
+from apps.taxonomy.models import Category
 
 class CategorySerializer(serializers.ModelSerializer):
 	class Meta:

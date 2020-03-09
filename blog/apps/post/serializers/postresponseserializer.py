@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from lib import constants as const
-from post.models import Post
+from apps.post.models import Post
 
 class PostResponseSerializer(serializers.ModelSerializer):
 	def to_representation(self, post):
