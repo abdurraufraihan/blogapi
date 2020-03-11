@@ -1,6 +1,6 @@
 # Blog API
 
-This is a simple blog api which is based on Django REST Framework. The three main resource of this API is Post, Category and Tag. For authentication we are using the Django REST Framework token auth. The api endpoints and sample request, response is given below.
+This is a simple blog api which is based on Django REST Framework. The three main resource of this API is Post, Category and Tag. For authenticating user i'm using the Django REST Framework token auth. The api endpoints and sample request, response is given below.
 
 
 # Endpoints
@@ -103,7 +103,7 @@ response body:
 ```json
 [
 	{
-		"id": 1,
+			"id": 1,
 	    "name": "caegory one"
 	},
 	{
