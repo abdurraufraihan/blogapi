@@ -85,14 +85,14 @@ request body:
 ```json
 {
 	"description": "The modified description",
-	"tag": [2,3]
+	"tag": [2, 3]
 }
 ```
 response body:
 ```json
 {
 	"description": "The modified description",
-	"tag": [2,3]
+	"tag": [2, 3]
 }
 ```
 ##### DELETE api/v1/posts/1
