@@ -5,11 +5,11 @@ This is a simple blog api which is based on Django REST Framework. The three mai
 
 # Endpoints
 - api/v1/posts
-- api/v1/posts/< int:pk >
+- api/v1/posts/:id
 - api/v1/categories
-- api/v1/categories/< int:pk >
+- api/v1/categories/:id
 - api/v1/tags
-- api/v1/tags/< int:pk >
+- api/v1/tags/:id
 
 ## Sample API Request and Response
 ##### GET api/v1/posts
@@ -80,7 +80,7 @@ response body:
 }
 ```
 ##### PUT api/v1/posts/1
-This end point is dynamic that mean we can modify any of post field by requesting only those fields. We don't need to request with all post fields. As sample we are modifying description and tag below
+This end point is dynamic that mean we can modify any of post field by requesting only those fields. We don't need to request with all post fields. As sample i'm modifying description and tag below.
 request body:
 ```json
 {
