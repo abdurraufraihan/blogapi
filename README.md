@@ -103,12 +103,12 @@ response body:
 ```json
 [
 	{
-			"id": 1,
-	    "name": "caegory one"
+		"id": 1,
+		"name": "caegory one"
 	},
 	{
-	    "id": 2,
-	    "name": "category two"
+		"id": 2,
+		"name": "category two"
 	}
 ]
 ```
@@ -117,35 +117,35 @@ response body:
 ```json
 {
 	"id": 1,
-    "name": "caegory one"
+	"name": "caegory one"
 }
 ```
 ##### POST api/v1/categories
 request body:
 ```json
 {
-    "name": "caegory one"
+	"name": "caegory one"
 }
 ```
 response body:
 ```json
 {
 	"id": 1,
-    "name": "caegory one"
+	"name": "caegory one"
 }
 ```
 ##### PUT api/v1/categories/1
 request body:
 ```json
 {
-    "name": "caegory one modified"
+	"name": "caegory one modified"
 }
 ```
 response body:
 ```json
 {
 	"id": 1,
-    "name": "caegory one modified"
+	"name": "caegory one modified"
 }
 ```
 ##### DELETE api/v1/categories/1
@@ -157,11 +157,11 @@ response body:
 [
 	{
 		"id": 1,
-	    "name": "tag one"
+		"name": "tag one"
 	},
 	{
-	    "id": 2,
-	    "name": "tag two"
+		"id": 2,
+		"name": "tag two"
 	}
 ]
 ```
@@ -170,35 +170,35 @@ response body:
 ```json
 {
 	"id": 1,
-    "name": "tag one"
+	"name": "tag one"
 }
 ```
 ##### POST api/v1/tags
 request body:
 ```json
 {
-    "name": "tag one"
+	"name": "tag one"
 }
 ```
 response body:
 ```json
 {
 	"id": 1,
-    "name": "tag one"
+	"name": "tag one"
 }
 ```
 ##### PUT api/v1/tags/1
 request body:
 ```json
 {
-    "name": "tag one modified"
+	"name": "tag one modified"
 }
 ```
 response body:
 ```json
 {
 	"id": 1,
-    "name": "tag one modified"
+	"name": "tag one modified"
 }
 ```
 ##### DELETE api/v1/tags/1
