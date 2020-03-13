@@ -1,6 +1,6 @@
 # Blog API
 
-This is a simple blog api which is based on Django REST Framework. The three main resource of this API is Post, Category and Tag. For authenticating user i'm using the Django REST Framework token auth. The api endpoints and sample request, response is given below.
+This is a simple blog api which is based on Django REST Framework. The three main resource of this API is Post, Category and Tag. For authenticating user i'm using the Django REST Framework token auth. The api endpoints and sample request, response are given below.
 
 
 # Endpoints
@@ -28,7 +28,7 @@ response body:
 		]
 	},
 	{
-		"id": 1,
+		"id": 2,
 		"title": "This is psot title two",
 		"description": "This is post descripton two",
 		"image": "/media/post/mypictwo.png",
@@ -44,8 +44,8 @@ response body:
 ```json
 {
 	"id": 1,
-	"title": "This is psot title",
-	"description": "This is post descripton",
+	"title": "This is post title",
+	"description": "This is post description",
 	"image": "/media/post/mypic.png",
 	"category": "category two",
 	"tag": [
@@ -80,7 +80,7 @@ response body:
 }
 ```
 ##### PUT api/v1/posts/1
-This end point is dynamic that mean we can modify any of post field by requesting only those fields. We don't need to request with all post fields. As sample i'm modifying description and tag below.
+This end point is dynamic that mean we can modify post by requesting only those fields which we want to modify. We don't need to request with all post fields. As sample i'm doing PUT request by modifying description and tag field below.
 request body:
 ```json
 {
@@ -96,7 +96,7 @@ response body:
 }
 ```
 ##### DELETE api/v1/posts/1
-this will delete post one and response back 204 not content
+this will delete post one and response back 204 no content
 
 ##### GET api/v1/categories
 response body:
@@ -149,7 +149,7 @@ response body:
 }
 ```
 ##### DELETE api/v1/categories/1
-this will delete category one and response back 204 not content
+this will delete category one and response back 204 no content
 
 ##### GET api/v1/tags
 response body:
@@ -202,4 +202,4 @@ response body:
 }
 ```
 ##### DELETE api/v1/tags/1
-this will delete tag one and response back 204 not content
+this will delete tag one and response back 204 no content
