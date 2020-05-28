@@ -12,5 +12,5 @@ def getPostDoesNotExistError():
 def getInternalServerError():
 	return Response(
 		{const.ERROR_PROPERTY : errorMessage.INTERNAL_SERVER_ERROR},
-		status=status.HTTP_404_NOT_FOUND
+		status=status.HTTP_500_INTERNAL_SERVER_ERROR
 	)
