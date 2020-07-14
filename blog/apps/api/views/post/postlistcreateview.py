@@ -21,7 +21,11 @@ class PostListCreateView(APIView):
 			queryset = Post.objects.all().order_by(const.ORDER_BY_DECENDING_PK)\
 				[startItem : endItem]
 			serializer = PostResponseSerializer(queryset, many=True)
-			return Response(serializer.data, status=status.HTTP_200_OK)
+			postResponse = {
+				const.TOTAL_POST_PROPERTY: Post.objects.count(),
+				const.POSTS_PROPERTY: serializer.data
+			}
+			return Response(postResponse, status=status.HTTP_200_OK)
 		except:
 			return errorUtil.getInternalServerError()
 
