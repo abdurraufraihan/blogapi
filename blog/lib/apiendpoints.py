@@ -1,5 +1,5 @@
 POST_URL = 'posts'
-POST_DETAIL_URL = 'posts/<int:pk>'
+POST_DETAIL_URL = 'posts/<uuid:postId>'
 CATEGORY_URL = 'categories'
 CATEGORY_DETAIL_URL = 'categories/<int:pk>'
 TAG_URL = 'tags'

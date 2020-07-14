@@ -11,15 +11,15 @@ from apps.post.models import Post
 class PostRetrieveUpdateDestroyView(APIView):
 	permission_classes = [IsAuthenticatedOrGetRequest]
 
-	def getPost(self, pk):
+	def getPost(self, postId):
 		try:
-			return Post.objects.get(pk=pk)
+			return Post.objects.get(postId=postId)
 		except Post.DoesNotExist:
 			return None
 
-	def get(self, request, pk, format=None):
+	def get(self, request, postId, format=None):
 		try:
-			post = self.getPost(pk)
+			post = self.getPost(postId)
 			if not post:
 				return errorUtil.getPostDoesNotExistError()
 			serializer = PostResponseSerializer(post)
@@ -27,9 +27,9 @@ class PostRetrieveUpdateDestroyView(APIView):
 		except:
 			return errorUtil.getInternalServerError()
 
-	def put(self, request, pk, format=None):
+	def put(self, request, postId, format=None):
 		try:
-			post = self.getPost(pk)
+			post = self.getPost(postId)
 			if not post:
 				return errorUtil.getPostDoesNotExistError()
 			serializer = PostUpdateSerializer(post, data=request.data)
@@ -43,8 +43,8 @@ class PostRetrieveUpdateDestroyView(APIView):
 		except:
 			return errorUtil.getInternalServerError()
 
-	def delete(self, request, pk, format=None):
-		post = self.getPost(pk)
+	def delete(self, request, postId, format=None):
+		post = self.getPost(postId)
 		if not post:
 			return errorUtil.getPostDoesNotExistError()
 		post.delete()
