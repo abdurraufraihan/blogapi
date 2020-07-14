@@ -1,6 +1,6 @@
 POST_URL = 'posts'
 POST_DETAIL_URL = 'posts/<uuid:postId>'
 CATEGORY_URL = 'categories'
-CATEGORY_DETAIL_URL = 'categories/<int:pk>'
+CATEGORY_DETAIL_URL = 'categories/<uuid:categoryId>'
 TAG_URL = 'tags'
 TAG_DETAIL_URL = 'tags/<int:pk>'
