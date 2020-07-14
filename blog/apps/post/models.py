@@ -15,3 +15,10 @@ class Post(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class Comment(models.Model):
+	commentId = \
+		models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+	description = \
+		models.CharField(max_length=const.COMMENT_DESCRIPTION_MAX_LENGTH)
+	post = models.ForeignKey(Post, on_delete=models.CASCADE)
