@@ -3,6 +3,8 @@ from lib import constants as const
 from apps.post.models import Post
 
 class PostResponseSerializer(serializers.ModelSerializer):
+	id = serializers.UUIDField(source=const.POST_ID_PROPERTY)
+
 	def to_representation(self, post):
 		responseData = super().to_representation(post)
 		if responseData[const.CATEGORY_PROPERTY]:
