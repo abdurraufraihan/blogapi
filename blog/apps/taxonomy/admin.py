@@ -5,12 +5,14 @@ from apps.taxonomy.models import Category, Tag
 class CategoryAdmin(admin.ModelAdmin):
 	list_display = [
 		const.ID_PROPERTY,
+		const.CATEGORY_ID_PROPERTY,
 		const.NAME_PROPERTY
 	]
 
 class TagAdmin(admin.ModelAdmin):
 	list_display = [
 		const.ID_PROPERTY,
+		const.TAG_ID_PROPERTY,
 		const.NAME_PROPERTY
 	]
 
