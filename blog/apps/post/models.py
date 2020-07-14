@@ -21,4 +21,6 @@ class Comment(models.Model):
 		models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 	description = \
 		models.CharField(max_length=const.COMMENT_DESCRIPTION_MAX_LENGTH)
-	post = models.ForeignKey(Post, on_delete=models.CASCADE)
+	post = models.ForeignKey(
+		Post, on_delete=models.CASCADE, related_name=const.COMMENTS_PROPERTY
+	)
