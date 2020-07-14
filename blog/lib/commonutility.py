@@ -1,3 +1,5 @@
+from lib import constants as const
+
 def getPaginationRange(page, itemPerPage):
 	try:
 		pageNumber = int(page)
@@ -8,3 +10,6 @@ def getPaginationRange(page, itemPerPage):
 	endItem = itemPerPage * pageNumber
 	startItem = endItem - itemPerPage
 	return startItem, endItem
+
+def getSummaryText(text, limit):
+	return text[:limit] + const.ELLIPS
