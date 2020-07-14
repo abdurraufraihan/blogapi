@@ -1,4 +1,5 @@
 ID_PROPERTY = 'id'
+POST_ID_PROPERTY = 'postId'
 TITLE_PROPERTY = 'title'
 NAME_PROPERTY = 'name'
 DESCRIPTION_PROPERTY = 'description'

@@ -1,8 +1,10 @@
+import uuid
 from django.db import models
 from lib import constants as const
 from apps.taxonomy.models import Category, Tag
 
 class Post(models.Model):
+	postId = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 	title = models.CharField(max_length=const.POST_TITLE_MAX_LENGTH)
 	description = models.TextField()
 	category = models.ForeignKey(
