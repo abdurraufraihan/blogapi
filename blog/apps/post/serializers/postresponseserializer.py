@@ -1,11 +1,11 @@
 from rest_framework import serializers
 from lib import constants as const
 from apps.post.models import Post
-from apps.post.serializers.commentserializer import ComentSerializer
+from apps.post.serializers.commentserializer import CommentSerializer
 
 class PostResponseSerializer(serializers.ModelSerializer):
 	id = serializers.UUIDField(source=const.POST_ID_PROPERTY)
-	comments = ComentSerializer(many=True, read_only=True)
+	comments = CommentSerializer(many=True, read_only=True)
 
 	def to_representation(self, post):
 		responseData = super().to_representation(post)
