@@ -69,7 +69,7 @@ request body:
 {
 	"title": "This is post title",
 	"description": "This is post descripton",
-	"image": <imagefile>,
+	"image": "<imagefile>",
 	"category": 2,
 	"tag": [1, 2]
 }
@@ -182,7 +182,7 @@ request body:
 response body:
 ```json
 {
-	"id": 8240307c-db87-4107-83e3-2f7aeabf5c48,
+	"id": "8240307c-db87-4107-83e3-2f7aeabf5c48",
 	"name": "caegory one modified"
 }
 ```
