@@ -7,7 +7,9 @@ This is a simple blog api which is based on Django REST Framework. The three mai
 `2. Clone this repository: git clone https://github.com/abdurraufraihan/blogapi.git`<br />
 `3. Then go to blogapi/blog directory: cd blogapi/blog`<br />
 `4. Install dependency: pip install -r requirements.txt`<br />
-`5. Run the app: python3 manage.py runserver`<br />
+`5. Run the app: python manage.py runserver`<br />
+`6. Then create a superuser: python manage.py createsuperuser`<br />
+`7. Now goto django admin with the superuser credential and add some post, comment, category, tag and test with your favorite api client`<br />
 
 ## Endpoints
 - api/v1/posts
