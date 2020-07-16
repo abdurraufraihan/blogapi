@@ -25,3 +25,18 @@ class CommentListCreateView(APIView):
 			return Response(serializer.data, status=status.HTTP_200_OK)
 		except:
 			return errorUtil.getInternalServerError()
+
+	def post(self, request, postId, format=None):
+		try:
+			serializer = CommentSerializer(data=request.data)
+			if serializer.is_valid():
+				serializer.save(postId=postId)
+				return Response(serializer.data, status=status.HTTP_200_OK)
+			else:
+				return Response(
+					serializer.errors, status=status.HTTP_400_BAD_REQUEST
+				)
+		except Post.DoesNotExist:
+			return errorUtil.getPostDoesNotExistError()
+		except:
+			return errorUtil.getInternalServerError()
