@@ -1,11 +1,18 @@
 # Blog API
 
-This is a simple blog api which is based on Django REST Framework. The three main resource of this API is Post, Category and Tag. For authenticating user i'm using the Django REST Framework token auth. The api endpoints and sample request, response are given below.
+This is a simple blog api which is based on Django REST Framework. The three main resource of this API is posts, categories and tags and one sub resource of posts is comments. For authenticating user i'm using the Django REST Framework token auth. Installation guide, api endpoints and sample request/response are given below.
 
+## For installing this Application please do this following steps
+`1. Create a virtual environment and activate the environment`<br />
+`2. Clone this repository: git clone https://github.com/abdurraufraihan/blogapi.git`<br />
+`3. Then go to blogapi/blog directory: cd blogapi/blog`<br />
+`4. Install dependency: pip install -r requirements.txt`<br />
+`5. Run the app: python3 manage.py runserver`<br />
 
-# Endpoints
+## Endpoints
 - api/v1/posts
 - api/v1/posts/:id
+- api/v1/posts/:id/comments
 - api/v1/categories
 - api/v1/categories/:id
 - api/v1/tags
@@ -17,8 +24,8 @@ response body:
 ```json
 [
 	{
-		"id": 1,
-		"title": "This is psot title",
+		"id": "a08bf8a3-5dbc-49b7-8cf4-395af88964a2",
+		"title": "This is post title",
 		"description": "This is post descripton",
 		"image": "/media/post/mypic.png",
 		"category": "category two",
@@ -28,8 +35,8 @@ response body:
 		]
 	},
 	{
-		"id": 2,
-		"title": "This is psot title two",
+		"id": "54e40b52-4ffb-4aa3-8200-b00a2f25336d",
+		"title": "This is post title two",
 		"description": "This is post descripton two",
 		"image": "/media/post/mypictwo.png",
 		"category": "category one",
@@ -43,7 +50,7 @@ response body:
 ##### GET api/v1/posts/1
 ```json
 {
-	"id": 1,
+	"id": "a08bf8a3-5dbc-49b7-8cf4-395af88964a2",
 	"title": "This is post title",
 	"description": "This is post description",
 	"image": "/media/post/mypic.png",
@@ -58,7 +65,7 @@ response body:
 request body:
 ```json
 {
-	"title": "This is psot title",
+	"title": "This is post title",
 	"description": "This is post descripton",
 	"image": <imagefile>,
 	"category": 2,
@@ -68,8 +75,8 @@ request body:
 response body:
 ```json
 {
-	"id": 1,
-	"title": "This is psot title",
+	"id": "a08bf8a3-5dbc-49b7-8cf4-395af88964a2",
+	"title": "This is post title",
 	"description": "This is post descripton",
 	"image": "/media/post/mypic.png",
 	"category": "category two",
@@ -96,18 +103,47 @@ response body:
 }
 ```
 ##### DELETE api/v1/posts/1
-this will delete post one and response back 204 no content
+this will delete post one and response back a status 204 no content
+
+##### GET api/v1/posts/a08bf8a3-5dbc-49b7-8cf4-395af88964a2/comments
+response body:
+```json
+[
+	{
+		"id": "6dc7b702-9c04-402f-a4d1-246356ca0b47",
+		"description": "This is comment of post one"
+	},
+	{
+		"id": "4479c87e-bfeb-49d6-80d6-2f9fb41cce2b",
+		"description": "This is another comment of post one"
+	}
+]
+```
+##### POST api/v1/posts/a08bf8a3-5dbc-49b7-8cf4-395af88964a2/comments
+request body:
+```json
+{
+	"description": "This is comment of post one"
+}
+```
+response body:
+```json
+{
+	"id": "6dc7b702-9c04-402f-a4d1-246356ca0b47",
+	"description": "This is comment of post one"
+}
+```
 
 ##### GET api/v1/categories
 response body:
 ```json
 [
 	{
-		"id": 1,
+		"id": "8240307c-db87-4107-83e3-2f7aeabf5c48",
 		"name": "caegory one"
 	},
 	{
-		"id": 2,
+		"id": "bbd326a3-e8dd-42a7-9fb6-59de66371ced",
 		"name": "category two"
 	}
 ]
@@ -116,7 +152,7 @@ response body:
 response body:
 ```json
 {
-	"id": 1,
+	"id": "8240307c-db87-4107-83e3-2f7aeabf5c48",
 	"name": "caegory one"
 }
 ```
@@ -130,7 +166,7 @@ request body:
 response body:
 ```json
 {
-	"id": 1,
+	"id": "8240307c-db87-4107-83e3-2f7aeabf5c48",
 	"name": "caegory one"
 }
 ```
@@ -144,23 +180,23 @@ request body:
 response body:
 ```json
 {
-	"id": 1,
+	"id": 8240307c-db87-4107-83e3-2f7aeabf5c48,
 	"name": "caegory one modified"
 }
 ```
 ##### DELETE api/v1/categories/1
-this will delete category one and response back 204 no content
+this will delete category one and response back a status 204 no content
 
 ##### GET api/v1/tags
 response body:
 ```json
 [
 	{
-		"id": 1,
+		"id": "81dadc2d-4438-420e-8db7-81017260c710",
 		"name": "tag one"
 	},
 	{
-		"id": 2,
+		"id": "0e6f50cd-5ee7-4516-a9e2-557e107f3e08",
 		"name": "tag two"
 	}
 ]
@@ -169,7 +205,7 @@ response body:
 response body:
 ```json
 {
-	"id": 1,
+	"id": "81dadc2d-4438-420e-8db7-81017260c710",
 	"name": "tag one"
 }
 ```
@@ -183,7 +219,7 @@ request body:
 response body:
 ```json
 {
-	"id": 1,
+	"id": "81dadc2d-4438-420e-8db7-81017260c710",
 	"name": "tag one"
 }
 ```
@@ -197,9 +233,9 @@ request body:
 response body:
 ```json
 {
-	"id": 1,
+	"id": "81dadc2d-4438-420e-8db7-81017260c710",
 	"name": "tag one modified"
 }
 ```
 ##### DELETE api/v1/tags/1
-this will delete tag one and response back 204 no content
+this will delete tag one and response back a status 204 no content
