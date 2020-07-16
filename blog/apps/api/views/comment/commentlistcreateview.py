@@ -6,8 +6,12 @@ from lib import errorutility as errorUtil
 from lib import constants as const, errormessages as errorMessage
 from apps.post.models import Post, Comment
 from apps.post.serializers.commentserializer import CommentSerializer
+from apps.api.permissions.isauthenticatedorgetrequest import \
+	IsAuthenticatedOrGetRequest
 
 class CommentListCreateView(APIView):
+	permission_classes = [IsAuthenticatedOrGetRequest]
+
 	def dispatch(self, request, postId, *args, **kwargs):
 		isPostIdExist = Post.objects.filter(postId=postId).exists()
 		if not isPostIdExist:
