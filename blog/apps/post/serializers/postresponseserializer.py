@@ -4,7 +4,7 @@ from apps.post.models import Post
 from apps.post.serializers.commentserializer import CommentSerializer
 
 class PostResponseSerializer(serializers.ModelSerializer):
-	id = serializers.UUIDField(source=const.POST_ID_PROPERTY)
+	id = serializers.UUIDField(source=const.POST_ID_PROPERTY, read_only=True)
 	comments = CommentSerializer(many=True, read_only=True)
 
 	def to_representation(self, post):
