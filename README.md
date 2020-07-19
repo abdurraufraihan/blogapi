@@ -49,7 +49,7 @@ response body:
 	},
 ]
 ```
-##### GET api/v1/posts/1
+##### GET api/v1/posts/a08bf8a3-5dbc-49b7-8cf4-395af88964a2
 ```json
 {
 	"id": "a08bf8a3-5dbc-49b7-8cf4-395af88964a2",
@@ -70,8 +70,11 @@ request body:
 	"title": "This is post title",
 	"description": "This is post descripton",
 	"image": "<imagefile>",
-	"category": 2,
-	"tag": [1, 2]
+	"category": "8240307c-db87-4107-83e3-2f7aeabf5c48",
+	"tag": [
+		"81dadc2d-4438-420e-8db7-81017260c710",
+		"0e6f50cd-5ee7-4516-a9e2-557e107f3e08"
+	]
 }
 ```
 response body:
@@ -88,23 +91,29 @@ response body:
 	]
 }
 ```
-##### PUT api/v1/posts/1
+##### PUT api/v1/posts/a08bf8a3-5dbc-49b7-8cf4-395af88964a2
 This end point is dynamic that mean we can modify post by requesting only those fields which we want to modify. We don't need to request with all post fields. As sample i'm doing PUT request by modifying description and tag field below.
 request body:
 ```json
 {
 	"description": "The modified description",
-	"tag": [2, 3]
+	"tag": [
+		"81dadc2d-4438-420e-8db7-81017260c710",
+		"0e6f50cd-5ee7-4516-a9e2-557e107f3e08"
+	]
 }
 ```
 response body:
 ```json
 {
 	"description": "The modified description",
-	"tag": [2, 3]
+	"tag": [
+		"81dadc2d-4438-420e-8db7-81017260c710",
+		"0e6f50cd-5ee7-4516-a9e2-557e107f3e08"
+	]
 }
 ```
-##### DELETE api/v1/posts/1
+##### DELETE api/v1/posts/a08bf8a3-5dbc-49b7-8cf4-395af88964a2
 this will delete post one and response back a status 204 no content
 
 ##### GET api/v1/posts/a08bf8a3-5dbc-49b7-8cf4-395af88964a2/comments
@@ -142,7 +151,7 @@ response body:
 [
 	{
 		"id": "8240307c-db87-4107-83e3-2f7aeabf5c48",
-		"name": "caegory one"
+		"name": "category one"
 	},
 	{
 		"id": "bbd326a3-e8dd-42a7-9fb6-59de66371ced",
@@ -150,33 +159,33 @@ response body:
 	}
 ]
 ```
-##### GET api/v1/categories/1
+##### GET api/v1/categories/8240307c-db87-4107-83e3-2f7aeabf5c48
 response body:
 ```json
 {
 	"id": "8240307c-db87-4107-83e3-2f7aeabf5c48",
-	"name": "caegory one"
+	"name": "category one"
 }
 ```
 ##### POST api/v1/categories
 request body:
 ```json
 {
-	"name": "caegory one"
+	"name": "category one"
 }
 ```
 response body:
 ```json
 {
 	"id": "8240307c-db87-4107-83e3-2f7aeabf5c48",
-	"name": "caegory one"
+	"name": "category one"
 }
 ```
-##### PUT api/v1/categories/1
+##### PUT api/v1/categories/8240307c-db87-4107-83e3-2f7aeabf5c48
 request body:
 ```json
 {
-	"name": "caegory one modified"
+	"name": "category one modified"
 }
 ```
 response body:
@@ -186,7 +195,7 @@ response body:
 	"name": "caegory one modified"
 }
 ```
-##### DELETE api/v1/categories/1
+##### DELETE api/v1/categories/8240307c-db87-4107-83e3-2f7aeabf5c48
 this will delete category one and response back a status 204 no content
 
 ##### GET api/v1/tags
@@ -203,7 +212,7 @@ response body:
 	}
 ]
 ```
-##### GET api/v1/tags/1
+##### GET api/v1/tags/81dadc2d-4438-420e-8db7-81017260c710
 response body:
 ```json
 {
@@ -225,7 +234,7 @@ response body:
 	"name": "tag one"
 }
 ```
-##### PUT api/v1/tags/1
+##### PUT api/v1/tags/81dadc2d-4438-420e-8db7-81017260c710
 request body:
 ```json
 {
@@ -239,5 +248,5 @@ response body:
 	"name": "tag one modified"
 }
 ```
-##### DELETE api/v1/tags/1
+##### DELETE api/v1/tags/81dadc2d-4438-420e-8db7-81017260c710
 this will delete tag one and response back a status 204 no content
