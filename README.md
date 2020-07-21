@@ -1,15 +1,17 @@
-# Blog API
+# Django Blog API
 
-This is a simple blog api which is based on Django REST Framework. The three main resource of this API is posts, categories and tags and one sub resource of posts is comments. For authenticating user i'm using the Django REST Framework token auth. Installation guide, api endpoints and sample request/response are given below.
+This is a simple blog api based on Django REST Framework. The three main resources of this API is posts, categories and tags and one sub resource of posts is comments. For authenticating user i'm using Django REST Framework token auth. Installation guide, api endpoints and sample request/response are given below.
 
 ## For installing this Application please do this following steps
-`1. Create a virtual environment and activate the environment`<br />
-`2. Clone this repository: git clone https://github.com/abdurraufraihan/blogapi.git`<br />
-`3. Then go to blogapi/blog directory: cd blogapi/blog`<br />
-`4. Install dependency: pip install -r requirements.txt`<br />
-`5. Run the app: python manage.py runserver`<br />
-`6. Then create a superuser: python manage.py createsuperuser`<br />
-`7. Now goto django admin with the superuser credential and add some post, comment, category, tag and test with your favorite api client`<br />
+```
+1. Create a virtual environment and activate the environment
+2. Clone this repository: git clone https://github.com/abdurraufraihan/blogapi.git
+3. Then go to blogapi/blog directory: cd blogapi/blog
+4. Install dependency: pip install -r requirements.txt
+5. Run the app: python manage.py runserver
+6. Then create a superuser: python manage.py createsuperuser
+7. Now goto django admin with the superuser credential and add some post, comment, category, tag and test with your favorite api client
+```
 
 ## Endpoints
 - api/v1/posts
@@ -24,30 +26,33 @@ This is a simple blog api which is based on Django REST Framework. The three mai
 ##### GET api/v1/posts
 response body:
 ```json
-[
-	{
-		"id": "a08bf8a3-5dbc-49b7-8cf4-395af88964a2",
-		"title": "This is post title",
-		"description": "This is post descripton",
-		"image": "/media/post/mypic.png",
-		"category": "category two",
-		"tag": [
-			"tag one",
-			"tag two"
-		]
-	},
-	{
-		"id": "54e40b52-4ffb-4aa3-8200-b00a2f25336d",
-		"title": "This is post title two",
-		"description": "This is post descripton two",
-		"image": "/media/post/mypictwo.png",
-		"category": "category one",
-		"tag": [
-			"tag two",
-			"tag three"
-		]
-	},
-]
+{
+	"totalPost": 17,
+	"posts": [
+		{
+			"id": "a08bf8a3-5dbc-49b7-8cf4-395af88964a2",
+			"title": "This is post title",
+			"description": "This is post descripton",
+			"image": "/media/post/mypic.png",
+			"category": "category two",
+			"tag": [
+				"tag one",
+				"tag two"
+			]
+		},
+		{
+			"id": "54e40b52-4ffb-4aa3-8200-b00a2f25336d",
+			"title": "This is post title two",
+			"description": "This is post descripton two",
+			"image": "/media/post/mypictwo.png",
+			"category": "category one",
+			"tag": [
+				"tag two",
+				"tag three"
+			]
+		}, ......
+	]
+}
 ```
 ##### GET api/v1/posts/a08bf8a3-5dbc-49b7-8cf4-395af88964a2
 ```json
@@ -99,7 +104,7 @@ request body:
 	"description": "The modified description",
 	"tag": [
 		"81dadc2d-4438-420e-8db7-81017260c710",
-		"0e6f50cd-5ee7-4516-a9e2-557e107f3e08"
+		"31349f0c-8162-4919-96ae-f94f102598fb"
 	]
 }
 ```
@@ -108,8 +113,8 @@ response body:
 {
 	"description": "The modified description",
 	"tag": [
-		"81dadc2d-4438-420e-8db7-81017260c710",
-		"0e6f50cd-5ee7-4516-a9e2-557e107f3e08"
+		"tag one",
+		"tag three"
 	]
 }
 ```
