@@ -41,6 +41,8 @@ class CommentListCreateView(APIView):
 					serializer.errors, status=status.HTTP_400_BAD_REQUEST
 				)
 		except Post.DoesNotExist:
-			return errorUtil.getPostDoesNotExistError()
+			return errorUtil.getDoesNotExistError(
+				errorMessage.POST_DOES_NOT_EXIST_ERROR
+			)
 		except:
 			return errorUtil.getInternalServerError()

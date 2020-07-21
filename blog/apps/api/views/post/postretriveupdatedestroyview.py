@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from lib import errorutility as errorUtil
+from lib import errorutility as errorUtil, errormessages as errorMessage
 from apps.api.permissions.isauthenticatedorgetrequest import \
 	IsAuthenticatedOrGetRequest
 from apps.post.serializers.postresponseserializer import PostResponseSerializer
@@ -21,7 +21,9 @@ class PostRetrieveUpdateDestroyView(APIView):
 		try:
 			post = self.getPost(postId)
 			if not post:
-				return errorUtil.getPostDoesNotExistError()
+				return errorUtil.getDoesNotExistError(
+					errorMessage.POST_DOES_NOT_EXIST_ERROR
+				)
 			serializer = PostResponseSerializer(post)
 			return Response(serializer.data, status=status.HTTP_200_OK)
 		except:
@@ -31,7 +33,9 @@ class PostRetrieveUpdateDestroyView(APIView):
 		try:
 			post = self.getPost(postId)
 			if not post:
-				return errorUtil.getPostDoesNotExistError()
+				return errorUtil.getDoesNotExistError(
+					errorMessage.POST_DOES_NOT_EXIST_ERROR
+				)
 			serializer = PostUpdateSerializer(post, data=request.data)
 			if serializer.is_valid():
 				serializer.save()
@@ -46,6 +50,8 @@ class PostRetrieveUpdateDestroyView(APIView):
 	def delete(self, request, postId, format=None):
 		post = self.getPost(postId)
 		if not post:
-			return errorUtil.getPostDoesNotExistError()
+			return errorUtil.getPostDoesNotExistError(
+				errorMessage.POST_DOES_NOT_EXIST_ERROR
+			)
 		post.delete()
 		return Response(status=status.HTTP_204_NO_CONTENT)

@@ -3,9 +3,9 @@ from rest_framework.response import Response
 from lib import constants as const
 from lib import errormessages as errorMessage
 
-def getPostDoesNotExistError():
+def getDoesNotExistError(errorMsg):
 	return Response(
-		{const.ERROR_PROPERTY : errorMessage.POST_DOES_NOT_EXIST_ERROR},
+		{const.ERROR_PROPERTY : errorMsg},
 		status=status.HTTP_404_NOT_FOUND
 	)
 
