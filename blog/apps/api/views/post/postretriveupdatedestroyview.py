@@ -6,7 +6,7 @@ from apps.api.permissions.isauthenticatedorgetrequest import \
 	IsAuthenticatedOrGetRequest
 from apps.post.serializers.postresponseserializer import PostResponseSerializer
 from apps.post.serializers.postupdateserializer import PostUpdateSerializer
-from apps.post.models import Post
+from apps.post.models import Post, Category, Tag
 
 class PostRetrieveUpdateDestroyView(APIView):
 	permission_classes = [IsAuthenticatedOrGetRequest]
@@ -44,6 +44,14 @@ class PostRetrieveUpdateDestroyView(APIView):
 				return Response(
 					serializer.errors, status=status.HTTP_400_BAD_REQUEST
 				)
+		except Category.DoesNotExist:
+			return errorUtil.getDoesNotExistError(
+				errorMessage.CATEGORY_DOES_NOT_EXIST_ERROR
+			)
+		except Tag.DoesNotExist:
+			return errorUtil.getDoesNotExistError(
+				errorMessage.TAG_DOES_NOT_EXIST_ERROR
+			)
 		except:
 			return errorUtil.getInternalServerError()
 
