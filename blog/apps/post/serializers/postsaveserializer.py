@@ -7,10 +7,10 @@ class PostSaveSerializer(serializers.ModelSerializer):
 	tag = serializers.ListField(child=serializers.UUIDField(), required=False)
 
 	def create(self, validatedData):
-		categoryId = None
 		if const.CATEGORY_PROPERTY in validatedData:
-			categoryId = validatedData[const.CATEGORY_PROPERTY]
-			category = Category.objects.get(categoryId=categoryId)
+			category = Category.objects.get(
+				categoryId=validatedData[const.CATEGORY_PROPERTY]
+			)
 			validatedData[const.CATEGORY_PROPERTY] = category
 		tags = None
 		if const.TAG_PROPERTY in validatedData:
