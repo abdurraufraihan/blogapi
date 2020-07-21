@@ -1,4 +1,5 @@
 from django.urls import path
+from rest_framework.authtoken.views import obtain_auth_token
 from lib import apiendpoints
 from .views.post.postlistcreateview import PostListCreateView
 from .views.post.postretriveupdatedestroyview import \
@@ -23,4 +24,5 @@ urlpatterns = [
 	),
 	path(apiendpoints.TAG_URL, TagListCreateView.as_view()),
 	path(apiendpoints.TAG_DETAIL_URL, TagRetrieveUpdateDestroyView.as_view()),
+	path(apiendpoints.LOGIN_URL, obtain_auth_token),
 ]
