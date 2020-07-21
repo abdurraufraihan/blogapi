@@ -24,24 +24,17 @@ class PostUpdateSerializer(PostSaveSerializer):
 		return super().to_representation(post)
 
 	def update(self, post, validatedData):
-		categoryId = None
 		if const.CATEGORY_PROPERTY in validatedData:
-			categoryId = validatedData[const.CATEGORY_PROPERTY]
-			category = Category.objects.get(categoryId=categoryId)
-			validatedData[const.CATEGORY_PROPERTY] = category
-		tags = None
+			post.category = Category.objects.get(
+				categoryId=validatedData[const.CATEGORY_PROPERTY]
+			)
 		if const.TAG_PROPERTY in validatedData:
-			tags = validatedData.pop(const.TAG_PROPERTY)
+			tags = validatedData[const.TAG_PROPERTY]
 			tags = [Tag.objects.get(tagId=tag) for tag in tags]
-			validatedData[const.TAG_PROPERTY] = tags
+			post.tag.set(tags)
 		post.title = validatedData.get(const.TITLE_PROPERTY, post.title)
 		post.description = \
 			validatedData.get(const.DESCRIPTION_PROPERTY, post.description)
-		post.category = \
-			validatedData.get(const.CATEGORY_PROPERTY, post.category)
-		tag = validatedData.get(const.TAG_PROPERTY, post.tag)
-		if isinstance(tag, list):
-			post.tag.set(tag)
 		post.image = validatedData.get(const.IMAGE_PROPERTY, post.image)
 		post.save()
 		return post
