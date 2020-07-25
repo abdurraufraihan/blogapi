@@ -9,6 +9,7 @@ from .views.taxonomy.categoryview import CategoryListCreateView, \
 from .views.taxonomy.tagview import TagListCreateView, \
 	TagRetrieveUpdateDestroyView
 from .views.comment.commentlistcreateview import CommentListCreateView
+from .views.user.signupuser import SignupUser
 
 urlpatterns = [
 	path(apiendpoints.POST_URL, PostListCreateView.as_view()),
@@ -25,4 +26,5 @@ urlpatterns = [
 	path(apiendpoints.TAG_URL, TagListCreateView.as_view()),
 	path(apiendpoints.TAG_DETAIL_URL, TagRetrieveUpdateDestroyView.as_view()),
 	path(apiendpoints.LOGIN_URL, obtain_auth_token),
+	path(apiendpoints.SIGNUP_URL, SignupUser.as_view())
 ]
