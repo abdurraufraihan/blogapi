@@ -1,10 +1,14 @@
 import uuid
 from django.db import models
+from django.conf import settings
 from lib import constants as const
 from lib import commonutility as commonUtil
 from apps.taxonomy.models import Category, Tag
 
 class Post(models.Model):
+	author = models.ForeignKey(
+		settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True
+	)
 	postId = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 	title = models.CharField(max_length=const.POST_TITLE_MAX_LENGTH)
 	description = models.TextField()
